@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Ammar's research Portfolio - </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            margin: 2rem auto;
+            border-radius: 20px;
+            padding: 4rem 2rem;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f8ff);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .stat-card span {
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* Section Styling */
+        .section {
+            background: white;
+            margin: 2rem auto;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        /* Power BI Section */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .dashboard-card {
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .dashboard-card:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+        }
+
+        .dashboard-preview {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .dashboard-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .dashboard-desc {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+
+        .view-dashboard-btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.3s ease;
+        }
+
+        .view-dashboard-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* R Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
+        }
+
+        .project-card:hover {
+            border-color: #28a745;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(40, 167, 69, 0.2);
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .r-icon {
+            width: 40px;
+            height: 40px;
+            background: #276DC3;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .download-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            background: #218838;
+        }
+
+        /* Fieldwork Section */
+        .fieldwork-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .fieldwork-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .fieldwork-item:hover {
+            transform: scale(1.05);
+        }
+
+        .fieldwork-img {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(45deg, #28a745, #20c997);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .fieldwork-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .fieldwork-item:hover .fieldwork-caption {
+            transform: translateY(0);
+        }
+
+        /* Fieldwork PDF Documentation */
+        .fieldwork-documentation {
+            margin-top: 3rem;
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            border: 2px solid #e9ecef;
+        }
+
+        .fieldwork-documentation h3 {
+            color: #667eea;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .pdf-container {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            margin-top: 1.5rem;
+        }
+
+        .pdf-preview {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .pdf-icon {
+            font-size: 3rem;
+            margin-right: 1.5rem;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .pdf-info h4 {
+            color: #333;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .pdf-info p {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .pdf-details {
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .pdf-details span {
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+            color: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .conference-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .conference-desc {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .highlight-point {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Master's Courses Section */
+        .courses-container {
+            margin-top: 2rem;
+        }
+
+        .semester-section {
+            margin-bottom: 3rem;
+        }
+
+        .semester-title {
+            font-size: 1.8rem;
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .course-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+        }
+
+        .course-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .course-code {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .course-brief {
+            font-size: 0.9rem;
+            opacity: 0.85;
+            line-height: 1.4;
+        }
+
+        .course-brief p {
+            margin: 0;
+        }
+
+        /* Q&A Section */
+        .qa-container {
+            margin-top: 2rem;
+        }
+
+        .qa-item {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .qa-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15);
+        }
+
+        .qa-question {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .qa-answer {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .qa-answer p {
+            margin-bottom: 1rem;
+        }
+
+        .qa-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .qa-context {
+            background: #e3f2fd;
+            padding: 1rem;
+            border-radius: 8px;
+            font-style: italic;
+            color: #1565c0;
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .dashboard-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .courses-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo"> Research Portfolio </div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#powerbi">Power BI</a></li>
+                <li><a href="#rprojects">R Projects</a></li>
+                <li><a href="#gstat">GSTAT</a></li>
+                <li><a href="#experience">Real Estate & Data</a></li>
+                <li><a href="#master-courses">Master's Courses</a></li>
+                <li><a href="#qa">Q&A</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <h1>Applied Research in Economics & Demographics</h1>
+            <p>Welcome! This site showcases my journey in data collection, analysis, visualization, and publishing—emphasizing the role of demographic data at every stage, with technical expertise in Power BI, R, and field surveys. All content shared here is limited to what is permitted for publication, ensuring the privacy of the organizations I have worked with.</p>
+            
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <span>Datasets Analyzed</span>
+                </div>
+                <div class="stat-card">
+                    <span>Power BI Dashboards</span>
+                </div>
+                <div class="stat-card">
+                    <span>R Projects</span>
+                </div>
+                <div class="stat-card">
+                    <span>Field Surveys</span>
+                </div>
+                <div class="stat-card">
+                    <span>Master's Courses</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Power BI Section -->
+        <section id="powerbi" class="section">
+            <h2>📊 Interactive Power BI Dashboards</h2>
+            <p>Some of my personal works on data visualizations, focusing on energy indicators.</p>
+            
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-preview">
+                        Monitoring Stations
+                    </div>
+                    <h3 class="dashboard-title">Solar Power Evaluation </h3>
+                    <p class="dashboard-desc">Interactive dashboard showcasing the full capabilities of solar energy monitoring stations.</p>
+                    <a href="https://app.powerbi.com/reportEmbed?reportId=f09d5fba-eca8-4e39-8660-5d6b43fc21fa&autoAuth=true&ctid=1158e2d5-dc24-41ad-abce-62841076dbde&actionBarEnabled=true" 
+   target="_blank" class="view-dashboard-btn">View Interactive Dashboard</a>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="dashboard-preview">
+                       General Energy Indices
+                    </div>
+                    <h3 class="dashboard-title">Comprehensive set of key indices</h3>
+                    <p class="dashboard-desc">Comprehensive demographic breakdowns with income distribution, population density, and housing affordability metrics.</p>
+                   <a href="https://app.powerbi.com/reportEmbed?reportId=6d8b5002-ea10-4d81-bda1-86ccf4a1b85a&autoAuth=true&ctid=1158e2d5-dc24-41ad-abce-62841076dbde&actionBarEnabled=true" 
+   target="_blank" class="view-dashboard-btn">View Interactive Dashboard</a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- R Projects Section -->
+        <section id="rprojects" class="section">
+            <h2>📈 R Projects & Statistical Analysis</h2>
+            <p>Advanced statistical modeling and data analysis projects using R programming.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="r-icon">R</div>
+                        <div>
+                            <h3>Texas Housing Sales & Permits Forecasting</h3>
+                            <p>VAR-based approach to forecasting housing activity</p>
+                        </div>
+                    </div>
+                    <p>Statistical analysis using Vector Autoregression (VAR), time series differencing, and model diagnostics to evaluate Texas housing sales and permits. Forecasts generated for 12 months ahead with comparisons of actual vs. predicted results. Part of the course Econometrics 674.</p>
+                    <a href="C:\Users\Ammar\OneDrive\Desktop\RA answers\assets\pdfs\texas-housing-forecast.pdf.pdf" class="download-btn" target="_blank">📄 Download PDF Report</a>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="r-icon">R</div>
+                        <div>
+                            <h3>Texas Sales Tax Receipts Forecasting</h3>
+                            <p>Univariate and multivariate forecasting models for state revenue</p>
+                        </div>
+                    </div>
+                    <p>My contribution to the final project of the course ECMT 674.Time series modeling with ETS, ARIMA, and VAR frameworks applied to Texas sales tax receipts. Includes adjustments for tax holidays, residual diagnostics, and 30-month ahead path forecasts, benchmarked against official Comptroller projections..</p>
+                    <a href="C:\Users\Ammar\OneDrive\Desktop\RA answers\assets\pdfs\texas-sales-tax-forecast.pdf.pdf" class="download-btn" target="_blank">📄 Download PDF Report</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- GSTAT Section -->
+        <section id="gstat" class="section">
+            <h2>🏠 Demographic Data - Field and Office work</h2>
+            <p>Hands-on data experience through comprehensive field surveys and demographic research.</p>
+            
+            <div class="fieldwork-gallery">
+                <div class="fieldwork-item">
+                    <div class="fieldwork-img"> Saudi Census 2020</div>
+                    <div class="fieldwork-caption">
+                        <h4>Property & Demographic Survey</h4>
+                        <p>Daily supervision of data collection in two phases: property enumeration followed by demographic data gathering.</p>
+                    </div>
+                </div>
+
+                <div class="fieldwork-item">
+                    <div class="fieldwork-img">2019 Unemployment Survey</div>
+                    <div class="fieldwork-caption">
+                        <h4>2019 Labor Force Survey</h4>
+                        <p>Field surveys were conducted at residences to gather data on demographic features and employment status.</p>
+                    </div>
+                </div>
+
+                <div class="fieldwork-item">
+                    <div class="fieldwork-img">Data Analysis & publishing<br>Energy studies</div>
+                    <div class="fieldwork-caption">
+                        <h4>Houshold Study</h4>
+                        <p>Comprehensive analysis of household demographics, characteristics, and related trends in the residential sector.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PDF Documentation Section -->
+            <div class="fieldwork-documentation">
+                <h3>📋 Fieldwork Documentation</h3>
+                <p>Comprehensive documentation of all fieldwork experiences, methodologies, and results.</p>
+                
+                <div class="pdf-container">
+                    <div class="pdf-preview">
+                        <div class="pdf-icon">📄</div>
+                        <div class="pdf-info">
+                            <h4>Complete Field & Office work Portfolio</h4>
+                            <p>Detailed documentation of all stages of the data lifecycle.</p>
+                            <div class="pdf-details">
+                                 <span>•  Energy department - Analysis & Publishing</span>
+                                <span>• Saudi Census 2020 & Labor Force Survey 2019 - Supervision & Coordination & Field Data Collection and controlling </span>
+                              
+                            
+                            </div>
+                        </div>
+                    </div>
+                    <a href="C:\Users\Ammar\OneDrive\Desktop\RA answers\assets\pdfs\GSTAT Documentation.pdf" class="download-btn" target="_blank">📄 Download Complete Documentation</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <h2>🏢 Professional Experience</h2>
+            
+            <div class="experience-card">
+                <h3 class="conference-title">Expo Housing Conference 2019</h3>
+                <p class="conference-desc">Represented Basma Real Estate at the Riyadh Housing Expo 2019, assisting beneficiaries of the 'Sakani' program by collecting their contact details, housing preferences, and support information to build a database for tailored housing offers.</p>
+                
+                <div class="highlight-points">
+                    <div class="highlight-point">
+                        <h4>Data Collection & Analysis</h4>
+                        <p>Gathered beneficiary data on housing preferences and government support to build actionable databases</p>
+                    </div>
+                    <div class="highlight-point">
+                        <h4>Industry Networking</h4>
+                        <p>Connected with housing market professionals and researchers</p>
+                    </div>
+                    <div class="highlight-point">
+                        <h4>Client Engagement</h4>
+                        <p>Assisted Sakani program beneficiaries and facilitated tailored housing offers through direct interaction.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Master's Courses Section -->
+        <section id="master-courses" class="section">
+            <h2>🎓 Master's Courses</h2>
+            <p>Comprehensive academic foundation in economics, econometrics, and statistical analysis.</p>
+            
+            <div class="courses-container">
+                <div class="semester-section">
+                    <h3 class="semester-title">Spring 2025</h3>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <h4>Foundation of Macroeconomics</h4>
+                            <p class="course-code">ECON 611</p>
+                            <div class="course-brief">
+                                <p>Unified framework based on micro-foundations for macroeconomic analysis. Covers measurement of output and prices, cross-country income differences, economic growth, fiscal policy analysis, and unemployment theory.</p>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <h4>Econometric Forecasting</h4>
+                            <p class="course-code">ECMT 674</p>
+                            <div class="course-brief">
+                                <p>Advanced time series modeling using R programming. Covers VAR, ARIMA, and ETS frameworks for economic forecasting with applications to housing markets and state revenue projections.</p>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <h4>Regression Analysis</h4>
+                            <p class="course-code">STAT 608</p>
+                            <div class="course-brief">
+                                <p>Multiple, curvilinear, nonlinear, robust, logistic and principal components regression analysis. Includes regression diagnostics, transformations, and analysis of covariance using R statistical software.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="semester-section">
+                    <h3 class="semester-title">Fall 2025</h3>
+                    <div class="courses-grid">
+                        <div class="course-card">
+                            <h4>Mathematical Economics</h4>
+                            <p class="course-code">ECON 660</p>
+                            <div class="course-brief">
+                                <p>Mathematical methods for economic analysis including linear algebra, matrix operations, comparative statics, and optimization theory. Essential mathematical tools for modern economic analysis.</p>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <h4>Behavioral Financial Economics</h4>
+                            <p class="course-code">ECON 618</p>
+                            <div class="course-brief">
+                                <p>How individuals and firms make financial decisions and deviations from traditional theory. Covers psychological biases, market behavior, and experimental approaches to financial decision-making.</p>
+                            </div>
+                        </div>
+                        <div class="course-card">
+                            <h4>Computational Statistics</h4>
+                            <p class="course-code">STAT 604</p>
+                            <div class="course-brief">
+                                <p>Programming for data analysis using R and Python. Covers data structures, statistical computing, simulation studies, data management, and statistical graphics for modern data analysts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Q&A Section -->
+        <section id="qa" class="section">
+            <h2>❓ Questions & Answers</h2>
+            <p>Detailed responses to common questions about my experience, methodology, and availability.</p>
+            
+            <div class="qa-container">
+                <div class="qa-item">
+                    <h3 class="qa-question">What experience do you have working with datasets related to housing, income, or demographics?</h3>
+                    <div class="qa-answer">
+                        <p>I worked as a Statistical Researcher at the General Authority of Statistics (GSTAT) from 2019 to 2021. My responsibilities went beyond the Energy Department, where I collaborated with colleagues to routinely quality-control, analyze, and publish data from surveys such as the Annual Household Energy Consumption Survey. I also helped design and implement the Transportation Sector Energy Consumption Survey from the ground up. In addition, I contributed to major national projects, including the 2019 Labor Force Survey and the Saudi Census 2020, through collecting, controlling data. All GSTAT surveys incorporated detailed demographic information such as age, household size, education, income, housing characteristics, and ownership type. This gave me experience working with large-scale demographic, income, and housing datasets</p>
+                    </div>
+                </div>
+
+               
+                <div class="qa-item">
+                    <h3 class="qa-question">Have you used tools like Excel, R, Stata, SAS, or Python for data analysis? If so, for what kinds of projects?</h3>
+                    <div class="qa-answer">
+                        <p>During my time at GSTAT, I became familiar with a wide range of statistical tools. I excelled in Power BI for data visualization and reporting, participated in workshops for R, and began developing skills in Python. I also gained working knowledge of SPSS and earlier experience with EViews.
+
+In Spring 2025, I had a major shift in my R proficiency through the Econometrics Forecasting course, where R was used extensively for time-series modeling and forecasting. This semester, in Statistical Computation, I am further strengthening my skills in R and Python, while also learning complementary tools such as HTML, which I am currently applying to build this website</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <h3 class="qa-question">In 2017, the Trump Administration created the Opportunity Zone program to help revitalize low-income areas across the U.S. by providing tax incentives to investors that invest in local businesses or real estate through Qualified Opportunity Funds. How would you go about researching the impact of the program on the Texas housing market?</h3>
+                    <div class="qa-answer">
+                        
+                        <p>Since the question is about the impact on the Texas housing sector, and these zones represent an expansionary policy expected to stimulate real estate developers to increase investment, I would focus on a range of housing-related datasets, including construction materials demand, supply, and prices, as well as employment level and contracts in the construction sector. I would also analyze building permits, exchanged property deeds, housing demand, supply, and prices, along with indicators of commercial activity in these zones. Finally, I would compare the updated data with the historical time series of each variable, and with non-opportunitiy zone areas. </p>
+
+
+
+<p> However, when I searched about that, updated by Jan 2021 studies show Opportunity Zone investments have been highly concentrated in a few urban areas, with mixed or limited effects on housing, jobs, and local economic activity (Tax Policy Center, What are Opportunity Zones and how do they work?)</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <h3 class="qa-question">There is a lot of speculation about whether the home prices will crash. How would you go about researching what a crash is and whether we are heading towards one?</h3>
+                    <div class="qa-answer">
+                                               <p>In general, a crash can be defined as an unusual and sustained decrease in prices over a relatively long period, such as the housing bubble of 2008. To study whether we are heading toward such a crash, I would examine datasets and variables, including variables I mentioned previously, alongside broader global, national, and local indicators, including interest rates, mortgage credit availability, insurance costs, and employment trends. Additionally, I would apply trusted forecasting models to evaluate potential crashes and risks. As Sabrina Parsons, CEO of LivePlan, says, “Accurate is different from right. A good forecast needs to represent your business, not predict the future.”   </p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <h3 class="qa-question">What is your expected graduation date?</h3>
+                    <div class="qa-answer">
+                        <p>December 2026</p>
+                    </div>
+                </div>
+
+                <div class="qa-item">
+                    <h3 class="qa-question">Are you available to work during the Summer?</h3>
+                    <div class="qa-answer">
+                        <p>Yes, I am available for summer positions, and I would love to contribute to that as soon as possible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy;Ammar’s 2025 Research Portfolio – Application Contribution for the Research Assistant Position at the Texas Real Estate Research Center .</p>
+          
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animation on sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
